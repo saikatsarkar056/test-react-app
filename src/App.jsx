@@ -17,11 +17,15 @@ export default function App() {
     ])
   }
 
+  const deleteTask = (id) => {
+    setTasks(tasks.filter(task => task.id !== id))
+  }
+
   return (
     <div className="app">
       <h1>Task List</h1>
       <TaskForm onAdd={addTask} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} onDelete={deleteTask} />
     </div>
   )
 }
